@@ -22,7 +22,7 @@ import java.util.List;
  **/
 @Controller
 @RequestMapping("/bookOperate")
-public class BaseManageController {
+public class BookController {
     @Autowired
     private BookMapperExt bookMapperExt;
     @Autowired
