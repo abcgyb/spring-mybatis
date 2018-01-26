@@ -37,8 +37,8 @@
                         password="root">
         </jdbcConnection>
         <javaModelGenerator targetPackage="com.example.demo.dao.entity.vue" targetProject="src/main/java"/>
-        <sqlMapGenerator targetPackage="mapper.vue.basic" targetProject="src/main/resources"/>
-        <javaClientGenerator targetPackage="com.qy.insurance.cloud.client.service.hospital.accessor.dao.mapper.vue.basic" targetProject="src/main/java"
+        <sqlMapGenerator targetPackage="mapper.local" targetProject="src/main/resources"/>
+        <javaClientGenerator targetPackage="com.example.demo.mapper.local" targetProject="src/main/java"
                              type="XMLMAPPER"/>
 
         <!--<table tableName="t_sys_property_resource" />-->
@@ -149,7 +149,7 @@
         <!--<table tableName="t_push_record">-->
             <!--<columnOverride column="base_index" property="id"/>-->
         <!--</table>-->
-        <table tableName="book">
+        <table tableName="manager">
             <generatedKey column="id" sqlStatement="MySql" identity="true" />
         </table>
 <!--        <table tableName="t_medical_records_resp">
