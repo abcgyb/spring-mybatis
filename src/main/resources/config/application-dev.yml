@@ -1,0 +1,102 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka:pass_123@localhost:8100/eureka/
+database:
+  link:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://rm-uf6e3308v0u0og2eto.mysql.rds.aliyuncs.com:3306/link_db?autoReconnect=true&useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: qybx_dev_read
+    password: x1POjIXTpt634p2sqYLA
+    type: com.alibaba.druid.pool.DruidDataSource
+          #数据库连接池配置
+    properties:
+      max-active: 5
+      min-idle: 1
+      initial-size: 1
+      test-on-borrow: true
+      test-on-return: true
+      test-while-idle: true
+      validation-query: select 1
+      #每10分钟收集空闲连接，单位毫秒#
+      time-between-eviction-runs-millis: 600000
+      #连接的最大空闲时间，单位毫秒，60分钟
+      min-evictable-idle-time-millis: 3600000
+      max-wait: 30000
+      jdbc-interceptors: ConnectionState;SlowQueryReport(threshold=0)
+  local:
+      driverClassName: com.mysql.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/vue_db?autoReconnect=true&useUnicode=true&characterEncoding=utf8&useSSL=false
+      username: root
+      password: root
+      type: com.alibaba.druid.pool.DruidDataSource
+              #数据库连接池配置
+      properties:
+        max-active: 5
+        min-idle: 1
+        initial-size: 1
+        test-on-borrow: true
+        test-on-return: true
+        test-while-idle: true
+        validation-query: select 1
+        #每10分钟收集空闲连接，单位毫秒#
+        time-between-eviction-runs-millis: 600000
+        #连接的最大空闲时间，单位毫秒，60分钟
+        min-evictable-idle-time-millis: 3600000
+        max-wait: 30000
+        jdbc-interceptors: ConnectionState;SlowQueryReport(threshold=0)
+  redis:
+    host: localhost
+    password: pass123
+    port: 6379
+    database: 0
+  sleuth:
+    sampler:
+      percentage: 1.0
+  zipkin:
+    base-url: http://zipkin-server/
+
+
+customerConfig:
+#平安产使用密钥
+  pacxKey: bxzltest
+  #平安产险是否加密
+  pacxEncrypt: false
+  pacxC210RepeatTimes: 30
+  pacxC210WaitMillisecond: 3000
+  pacxPushUrl: https://mhis-yedi-stg1.pingan.com.cn:59443/yedi-platform/biz/inbound/h?needDecrypt=false&senderCode=
+  #平安产险推送cron
+  pacxCron: 0 0/5 * * * ?
+  #推送重试次数
+  pacxRetryTimes: 3
+  #重试间隔
+  pacxRetryMillisecond: 5000
+  #平安产推送单笔限制
+  pacxListLimit: 100
+  #pacx推送用mq，废弃
+  pacxPushTag: pushService
+  #pacx接收用code
+  pacxReceiverCode: 200000191
+  #payl是否加密
+  paylEncrypt: false
+  paylQ002Path: /hospital_link/queryStatus
+  pacxReSendTimeLimit: 600000
+  #payl是否过滤已发送数据
+  paylDropSent: false
+  monitorUrl: http://139.196.208.84:2017/
+  clUrl: http://localhost:8090/
+logging:
+  path: ./log
+  level:
+    com.example: DEBUG
+    root: DEBUG
+qy:
+  insurance:
+    link:
+      delayOn: true
+      delay:
+        count: 1
+        interval: 1
+requestLimitTime:
+    #设定的对外健康检查的调用时间（当前默认是分钟）
+    minute: 10

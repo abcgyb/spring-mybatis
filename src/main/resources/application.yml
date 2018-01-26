@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: gyb_mybatis_project
+  profiles:
+    active: dev
+  aop:
+    proxyTargetClass: true
+  http:
+    converters:
+      preferred-json-mapper: gson
+  cloud:
+    inetutils:
+      ignored-interfaces:
+        - docker0
+        - veth.*
+  mvc:
+    async:
+      request-timeout: 300000
+server:
+  port: 8088
+  tomcat:
+    background-processor-delay: 20
+    max-threads: 300
+    min-spare-threads: 5
+eureka:
+  instance:
+    prefer-ip-address: true
+    leaseRenewalIntervalInSeconds: 10
