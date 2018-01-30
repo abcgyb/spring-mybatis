@@ -16,4 +16,8 @@ public class ManagerReqDto {
 
     private int age;
 
+    private int pageNo;
+
+    private int pageSize;
+
 }
